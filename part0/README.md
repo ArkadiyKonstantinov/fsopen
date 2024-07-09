@@ -63,12 +63,20 @@ sequenceDiagram
     server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
     deactivate server    
     Note right of browser: The browser executes the callback function that renders the notes
+```
 
-    Note right of browser: User input new note and push Save button
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    activate server
-    server->>browser: 201 Created response
-    deactivate server
+# Exercise 0.6
 
-    Note right of browser: The event handler handles the form's submit event and rerenders the note list on the page
+```mermaid
+sequenceDiagram
+  participant browser
+  participant server
+
+  Note right of browser: The user inputs a new note and pushes the Save button
+  browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+  activate server
+  server->>browser: 201 Created response
+  deactivate server
+
+  Note right of browser: The event handler handles the form's submit event and rerenders the note list on the page
 ```
